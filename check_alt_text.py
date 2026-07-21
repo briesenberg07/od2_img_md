@@ -16,8 +16,8 @@ def main():
 
     # Read file(s) metadata
     with exiftool.ExifToolHelper() as et:
-        metadata = et.get_tags(files, tags=["XMP-iptcCore:AltTextAccessibility", "ImageDescription"]) # Note: no leading - in tags here, unlike command line
-        # Print alt text field value for each image
+        metadata = et.get_tags(files, tags=["XMP-iptcCore:AltTextAccessibility", "ImageDescription"]) # No leading - in tags here, unlike command line
+        # Print alt text and image description field values for each image
         for d in metadata:
             print("File: ", d.get("SourceFile"))
             print("Alt Text: ", d.get("XMP-iptcCore:AltTextAccessibility", "MISSING"))
