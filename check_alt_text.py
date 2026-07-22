@@ -26,8 +26,7 @@ def main():
                 "exiftool",
                 "-j",
                 "-EXIF:ImageDescription",
-                "-XMP:AltTextAccessibility",
-                "-XMP-iptcCore:AltTextAccessibility",
+                "-XMP:AltTextAccessibility", # -XMP-iptcCore:AltTextAccessibility seems to work just as well
                 file_path,
             ],
             capture_output=True,
