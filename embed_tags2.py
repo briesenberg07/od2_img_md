@@ -2,6 +2,7 @@
 from pathlib import Path
 from csv import DictReader
 from subprocess import run
+from config import VALID_EXTENSIONS
 
 # FIXME -- don't think it can handle single or double quotes in csv cells
 # FIXME -- not writing XMP ImageDescription to PNG files!
@@ -24,7 +25,7 @@ def main():
         for row in reader:
 
             # Add alt text and image description to each file (take from csv)
-            if row['file'].split('.')[-1].lower() in ["tif", "jpg", "tif", "tiff", "png"]:
+            if row['file'].split('.')[-1].lower() in VALID_EXTENSIONS:
                 asset = Path(input_string, "files", row["file"])
 
                 # Build exiftool command

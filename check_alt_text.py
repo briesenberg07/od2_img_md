@@ -1,8 +1,8 @@
 from pathlib import Path
-from csv import DictReader
 from subprocess import run
 import os
 import json
+from config import VALID_EXTENSIONS
 
 def main():
     # Get path from user
@@ -13,7 +13,7 @@ def main():
     files = [
         entry.path
         for entry in os.scandir(path)
-        if entry.is_file() and entry.name.lower().endswith((".tif", ".tiff"))
+        if entry.is_file() and Path(entry.name).suffix.lower().lstrip(".") in VALID_EXTENSIONS
     ]
     if not files:
         print("No files found")
