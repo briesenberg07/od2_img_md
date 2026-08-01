@@ -8,7 +8,7 @@ def main():
     # absolute_path/
     #   files/ # assets to process
 
-    input_str = input("enter absolute path to top-level importer folder\n>>>")
+    input_str = input("Enter absolute path to top-level importer folder\n>>> ")
     files = Path(input_str, "files")
     fileseries = [file for file in listdir(files)]
     blankseries = [None for file in listdir(files)]
