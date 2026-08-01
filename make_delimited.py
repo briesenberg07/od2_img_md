@@ -16,9 +16,7 @@ def main():
     # make alt text spreadsheet
     alt_text_data = {"file": fileseries, "alt_text": blankseries}
     dfat = pd.DataFrame(data=alt_text_data)
-    # FIXME -- eliminate need to have two separate to_csv
-    dfat.to_csv(f"{input_str}/alt_text.csv", index=False) # Windows
-    # dfat.to_csv(f"{input_str}/alt_text.csv", index=False) # Linux
+    dfat.to_csv(f"{input_str}/alt_text.csv", index=False)
     print(f"Finished creating csv at {input_str}/alt_text.csv")
 
 if __name__ == "__main__":
