@@ -10,9 +10,9 @@ python make_delimited.py
 Enter the path to the top-level importer folder (the one that contains files/ and your metadata csv) when prompted.
 
 2. Write alt text for each file as desired in the 'alt_text' column and save
-3. Run embed_tags2.py
+3. Run embed_tags.py
 ```zsh
-python embed_tags2.py
+python embed_tags.py
 ```
 
 Enter the path to the top-level importer folder, just like before, when prompted. You should see each file printed in the terminal as it's processed.
