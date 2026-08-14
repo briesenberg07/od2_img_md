@@ -6,7 +6,6 @@ import shutil
 
 
 def main():
-    deleted_count = 0
     moved_count = 0
 
     # Get files/ path

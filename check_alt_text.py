@@ -6,7 +6,7 @@ from config import VALID_EXTENSIONS
 
 def main():
     # Get path from user
-    path_input = input("Enter the path to the files folder containing images: ")
+    path_input = input("Enter the path to the files folder containing images\n>>> ")
     path = Path(path_input)
 
     # Build files list from files/ folder
