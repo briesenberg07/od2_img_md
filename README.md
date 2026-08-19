@@ -3,6 +3,8 @@ Script to embed metadata in image files for ingest in Oregon Digital
 
 ## How to Use
 
+Before anything, follow the [Setup instructions](https://github.com/briesenberg07/od2_img_md/wiki/Setup).
+
 1. Run make_delimited
 ```zsh
 python make_delimited.py
