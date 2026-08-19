@@ -47,6 +47,9 @@ def main():
                 "images": [image_buffer.getvalue()],
             }],
         )
+
+        #FIXME: check that alt text file exists at start, then edit fields here 
+        # as you go rather than printing
         alt_text = response["message"]["content"].strip()
         print(f"{img_path.name}: {alt_text}")
 
