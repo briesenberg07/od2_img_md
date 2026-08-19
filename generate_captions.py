@@ -6,6 +6,7 @@ import os
 from io import BytesIO
 from PIL import Image
 
+#FIXME: This is specifically for uo athletics, not OD broadly. Find general guidelines and update.
 PROMPT = (
     "Write one concise alt-text sentence for this sports photo. "
     "Present tense, active voice. No 'image of' or 'picture of.' "
@@ -29,13 +30,16 @@ def main():
     # Build files list from files/ folder
     for img_path in files:
         with Image.open(img_path) as image:
+            print(f"Processing {img_path.name}...")
             image = image.convert("RGB")
             image.thumbnail((1024, 1024))
             image_buffer = BytesIO()
             image.save(image_buffer, format="JPEG", quality=85)
 
         response = ollama.chat(
-            model="qwen2.5vl:7b",
+            model="qwen2.5vl:7b", # Better, slower model
+            # model="qwen2.5vl:3b", # Decent performance, medium speed
+            # model="moondream", # Worse, faster model
             options={"num_ctx": 4096},
             messages=[{
                 "role": "user",
