@@ -20,15 +20,16 @@ def main():
     path_input = input("Enter the path to the files folder containing images\n>>> ")
     path = Path(path_input)
 
+    # Build valid files list from given folder
     files = [
     Path(entry.path)
     for entry in os.scandir(path)
     if entry.is_file()
     and Path(entry.name).suffix.lower().lstrip(".") in VALID_EXTENSIONS
-]
+    ]
 
-    # Build files list from files/ folder
     for img_path in files:
+        # Resize and convert image to JPEG (vision-readable format)
         with Image.open(img_path) as image:
             print(f"Processing {img_path.name}...")
             image = image.convert("RGB")
@@ -36,6 +37,7 @@ def main():
             image_buffer = BytesIO()
             image.save(image_buffer, format="JPEG", quality=85)
 
+        # Generate alt text for image
         response = ollama.chat(
             model="qwen2.5vl:7b", # Better, slower model
             # model="qwen2.5vl:3b", # Decent performance, medium speed
