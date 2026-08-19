@@ -6,6 +6,10 @@ import os
 from io import BytesIO
 from PIL import Image
 
+# MODEL = "qwen2.5vl:7b" # Better, slower model
+# MODEL = "qwen2.5vl:3b" # Decent performance, medium speed
+MODEL = "moondream" # Worse, faster model
+
 #FIXME: This is specifically for uo athletics, not OD broadly. Find general guidelines and update.
 PROMPT = (
     "Write one concise alt-text sentence for this sports photo. "
@@ -39,9 +43,7 @@ def main():
 
         # Generate alt text for image
         response = ollama.chat(
-            model="qwen2.5vl:7b", # Better, slower model
-            # model="qwen2.5vl:3b", # Decent performance, medium speed
-            # model="moondream", # Worse, faster model
+            model=MODEL,
             options={"num_ctx": 4096},
             messages=[{
                 "role": "user",
