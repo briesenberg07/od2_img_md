@@ -1,0 +1,2 @@
+# Rename this file to .env, and insert your API key inside the quotes
+export OLLAMA_API_KEY = "Replace this with your API key"

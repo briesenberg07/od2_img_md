@@ -1,15 +1,29 @@
 import subprocess
 from pathlib import Path
-import ollama
+# import ollama
+from ollama import Client
 from config import VALID_EXTENSIONS
 import os
 from io import BytesIO
 from PIL import Image
 from csv import DictReader, DictWriter
+from dotenv import load_dotenv
 
 # MODEL = "qwen2.5vl:7b" # Better, slower model
 # MODEL = "qwen2.5vl:3b" # Decent performance, medium speed
-MODEL = "moondream" # Worse, faster model
+# MODEL = "moondream" # Worse, faster model
+MODEL = "gemma4:31b" # Only vision model for free Ollama Cloud API
+
+#NOTE: For now, if you want to switch between Ollama Cloud API and local hosting you have to edit not only the model
+# but also the 'response = [client / ollama].chat' section. Can be fixed later with a local/client bool and if statement
+
+load_dotenv()
+
+# Set up Ollama API
+client = Client(
+    host="https://ollama.com",
+    headers={'Authorization': 'Bearer ' + os.environ.get('OLLAMA_API_KEY')}
+)
 
 #FIXME: This is specifically for uo athletics, not OD broadly. Find general guidelines and update. Something like
 # "Write one concise alt-text sentence for this image. Present tense, active voice. No 'image of' or 'picture of.'
@@ -59,7 +73,12 @@ def main():
             image.save(image_buffer, format="JPEG", quality=85)
 
         # Generate alt text for image
-        response = ollama.chat(
+
+        # For Ollama Cloud API:
+        response = client.chat(
+        # For local usage:
+        # response = ollama.chat(
+
             model=MODEL,
             options={"num_ctx": 4096},
             messages=[{
