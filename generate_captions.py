@@ -26,7 +26,7 @@ PROMPT = (
 def main():
     # Get images path
     path_input = input("Enter the path to the files folder containing images\n>>> ")
-    alt_text_input = input("Enter the alt text file to edit\n>>> ")
+    alt_text_input = input("Enter the path to the alt text file to edit\n>>> ")
     path = Path(path_input)
 
     alt_text_path = Path(alt_text_input)
