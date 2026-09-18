@@ -11,7 +11,8 @@ python make_delimited.py
 ```
 Enter the path to the top-level importer folder (the one that contains files/ and your metadata csv) when prompted.
 
-### 2. Write alt text for each file as desired in the 'alt_text' column and save. You can do this manually or [run generate_alt_text.py](https://github.com/briesenberg07/od2_img_md/wiki/Generating-Alt-Text-with-AI).
+### 2. Write alt text for each file as desired in the 'alt_text' column and save.
+- You can do this manually or [run generate_alt_text.py](https://github.com/briesenberg07/od2_img_md/wiki/Generating-Alt-Text-with-AI).
 ### 3. Run embed_tags.py
 ```zsh
 python embed_tags.py
