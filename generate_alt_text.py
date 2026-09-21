@@ -1,5 +1,6 @@
 import subprocess
 from pathlib import Path
+# Uncomment the ollama import for local model running
 # import ollama
 from ollama import Client
 from config import VALID_EXTENSIONS
@@ -9,6 +10,7 @@ from PIL import Image
 from csv import DictReader, DictWriter
 from dotenv import load_dotenv
 
+# Uncomment the model you want to use. Use gemma4:31b for the Ollama Cloud API, and any other model to run locally
 # MODEL = "qwen2.5vl:7b" # Better, slower model
 # MODEL = "qwen2.5vl:3b" # Decent performance, medium speed
 # MODEL = "moondream" # Worse, faster model
