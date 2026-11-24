@@ -14,6 +14,7 @@ Enter the path to the top-level importer folder (the one that contains files/ an
 ### 2. Write alt text for each file as desired in the 'alt_text' column and save.
 - You can do this manually or [run generate_alt_text.py](https://github.com/briesenberg07/od2_img_md/wiki/Generating-Alt-Text-with-AI).
 ### 3. Run embed_tags.py
+For this you'll need [ExifTool](https://exiftool.org/) installed. See guidance for installing ExifTool [on Windows](https://exiftool.org/install.html#Windows), [MacOS](https://exiftool.org/install.html#MacOS), and [Unix platforms](https://exiftool.org/install.html#Unix).
 ```zsh
 python embed_tags.py
 ```
